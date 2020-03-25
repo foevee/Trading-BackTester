@@ -17,6 +17,10 @@ This class will manage all orders sent to the venues, based on signals generated
 #### Trading Strategy
 As the brain of our system, strategies will take limit order book from each venue and make defined decisions based on different parameter and values. Some strategies will need to analyze the entire depth of books, others, just top of the book prices (that’s our case for this implementation), that is the best bid and best ask.
 
+It is divided into 2 main parts:
+- The signal in charge of generating the entry and the exit signal, i.e. when the strategy wants to take or exit a position
+- The execution in charge of responding to the market update, i.e. when the strategy decides to trade, orders can be rejects. It needs to make the decision on what to do.
+
 #### Market Simulator
 The Market Simulator is here to simulate the response from the market. In the implementation, I will reduce the functionality for now to accept a limit order and fills it. It will reject any orders whose quantity is lower 1000.
 
